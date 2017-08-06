@@ -27,7 +27,9 @@
     <div class="container-fluid" style="margin-left: 10px; margin-right: 10px">
         <div class="row">
             <div class="col-md-6">
-                <img src="static/google_maps.png" width="100%" height="800"/>
+                <div class="col-md-12" id="map" style="height: 800px"></div>
+                <!--<iframe width="100%" height="1000px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=10&center=37.0871,-76.4730&key={{ key }}" allowfullscreen></iframe>-->
+                <!--<img src="static/google_maps.png" width="100%" height="800"/>-->
             </div>
             <div class="col-md-6">
                 <div class="row">
@@ -49,5 +51,18 @@
         </div>
     </div>
 
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: {lat: 37.1, lng: -76.55}
+            });
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
+    </script>
 </body>
 </html>
