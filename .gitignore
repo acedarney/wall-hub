@@ -49,3 +49,5 @@ Temporary Items
 # Other Stuff to Ignore
 .idea/
 api_key.txt
+
+\.vscode/
