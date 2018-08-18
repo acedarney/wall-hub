@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
+{% block head %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+{% endblock head %}
+
 {% block body %}
-    <h1>To Do List</h1>
+    <div class="container">
+        <h1>To Do List</h1>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-outline-dark"><i class="fa fa-check"></i></button>
+                &nbsp;Task 1
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-outline-dark"><i class="fa fa-check"></i></button>
+                &nbsp;Task 2
+            </li>
+        </ul>
+    </div>
 {% endblock body %}
