@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arney Wall Hub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body background="{{ url_for("static", filename="metal.jpg") }}">
+    <nav class="navbar navbar-inverse" style="border-radius: 0">
+        <div class="container-fluid">
+            <div class="navbar-header navbar-brand">
+                Arney Wall Hub
+                <!--<a class="navbar-brand" href="#">Arney Wall Hub</a>-->
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Weather</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> To Do List</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Calendar</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> Dinners</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="margin-left: 10px; margin-right: 10px">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12" id="map" style="height: 800px"></div>
+                <!--<iframe width="100%" height="1000px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=10&center=37.0871,-76.4730&key={{ key }}" allowfullscreen></iframe>-->
+                <!--<img src="static/google_maps.png" width="100%" height="800"/>-->
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=37.243044&lon=-76.739595&name=Williamsburg"></iframe>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="static/todo_image.jpg" width="100%" height="555"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px">
+            <div class="col-md-12">
+                <iframe src="https://calendar.google.com/calendar/embed?title=Arney%20Family%20Calendar&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=1000&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=acedarney%40gmail.com&amp;color=%23182C57&amp;src=jmae1009%40gmail.com&amp;color=%23B1365F&amp;ctz=America%2FNew_York" style="border-width:0" width="100%" height="1000" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: {lat: 37.1, lng: -76.55}
+            });
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
+    </script>
+</body>
+</html>
